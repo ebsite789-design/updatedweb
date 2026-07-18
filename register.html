@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register for Arise Events</title>
+  <meta name="description" content="Register your team for Arise Sports tournaments and events." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="register.css" />
+</head>
+<body class="register-body">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Arise Sports home"><span>ARISE</span><small>SPORTS</small></a>
+    <nav aria-label="Main navigation">
+      <a href="index.html#about">About</a>
+      <a href="index.html#events">Events</a>
+      <a href="register.html" class="nav-cta">Register now <b>↗</b></a>
+    </nav>
+  </header>
+
+  <main class="register-page">
+    <section class="register-hero">
+      <div class="register-copy reveal">
+        <p class="section-tag">06 / REGISTRATION</p>
+        <h1>JOIN THE NEXT <span>GAME.</span></h1>
+        <p>Register your team for the upcoming Arise Sports tournaments. Select your event, share the captain details, and upload your payment proof.</p>
+        <div class="event-list">
+          <div>
+            <strong>26/07/2026</strong>
+            <span>ARISE INDOOR BOX CRICKET TOURNAMENT</span>
+          </div>
+          <div>
+            <strong>09/08/2026</strong>
+            <span>ARISE FOOTBALL CHAMPIONSHIP (5-A-SIDE)</span>
+          </div>
+          <div>
+            <strong>09/08/2026</strong>
+            <span>1V1 SHOWDOWN</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="register-card reveal">
+        <form data-registration-form>
+          <div class="form-grid">
+            <label>
+              Full name
+              <input type="text" name="name" placeholder="Enter your name" required />
+            </label>
+            <label>
+              Email address
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Team name
+              <input type="text" name="team" placeholder="Your team name" required />
+            </label>
+            <label>
+              Captain / leader name
+              <input type="text" name="captain" placeholder="Captain name" required />
+            </label>
+            <label>
+              Captain Instagram ID / link
+              <input type="text" name="instagram" placeholder="@username or link" required />
+            </label>
+            <label>
+              Captain photo
+              <input type="file" name="captain_photo" accept="image/*" />
+            </label>
+            <label>
+              Choose event
+              <select id="event-select" name="event" required>
+                <option value="" selected disabled>Select an event</option>
+                <option value="box-cricket">ARISE INDOOR BOX CRICKET TOURNAMENT · 26/07/2026 · ₹4,500</option>
+                <option value="football">ARISE FOOTBALL CHAMPIONSHIP (5-A-SIDE) · 09/08/2026 · ₹2,999</option>
+                <option value="showdown">1V1 SHOWDOWN · 09/08/2026 · ₹99</option>
+              </select>
+            </label>
+            <label>
+              Payment screenshot
+              <input type="file" name="payment_screenshot" accept="image/*" />
+            </label>
+          </div>
+
+          <button class="button primary" type="submit">Register team <b>→</b></button>
+          <p class="form-status" data-form-status aria-live="polite"></p>
+          <p class="form-note">Your registration details will be sent to the connected Google Sheet and also opened in your email app for confirmation.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
