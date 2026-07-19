@@ -33,7 +33,7 @@ const eventDetails = {
   'showdown': { name: '1V1 SHOWDOWN', price: '₹99', date: '09/08/2026' }
 };
 
-const SHEET_WEBAPP_URL = 'YOUR_APPS_SCRIPT_WEBAPP_URL';
+const SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbx.../exec';
 
 const setStatus = (message, type = '') => {
   if (!formStatus) return;
@@ -83,7 +83,7 @@ if (registrationForm) {
         });
         setStatus('Registration saved successfully to the Google Sheet.', 'success');
       } else {
-        setStatus('Google Sheet endpoint not configured yet. Please add your Apps Script web app URL in script.js.', 'error');
+        setStatus('Google Sheet endpoint is ready to use once you replace the placeholder URL in script.js with your Apps Script web app URL.', 'error');
       }
     } catch (error) {
       setStatus('The registration could not be saved automatically. Please check the connection.', 'error');
