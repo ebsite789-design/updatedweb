@@ -1,0 +1,17 @@
+WordPress recovery steps for the critical error:
+
+1. Open your hosting panel or File Manager.
+2. Go to public_html/wp-content/themes/.
+3. Rename the custom theme folder, for example:
+   - arise-sports-theme -> arise-sports-theme-disabled
+4. Save the change.
+5. Refresh the site.
+6. WordPress will fall back to a default theme automatically.
+
+If you still see the error:
+- Go to public_html/wp-content/plugins/ and rename the recently added plugin folder, for example:
+  - arise-registration-plugin -> arise-registration-plugin-disabled
+
+After recovery:
+- Reinstall a clean default theme from Appearance > Themes.
+- Re-upload the custom theme only after testing it.

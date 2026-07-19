@@ -1,0 +1,14 @@
+If the site still shows the critical error after switching to a default theme, do this next:
+
+1. Go to the hosting panel.
+2. Open the site cache area.
+3. Purge everything, including LiteSpeed cache.
+4. If the panel has a "Clear All Cache" or "Purge All" button, use it.
+5. Then open the site in an incognito/private browser window.
+
+If it still fails:
+- Rename the plugin folder from public_html/wp-content/plugins/ to something like plugin-disabled.
+- Refresh the site again.
+
+If the site recovers, the issue was a plugin conflict.
+If it still fails, the hosting account may have a stale cached copy or a WordPress core file issue.
