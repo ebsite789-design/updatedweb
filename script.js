@@ -55,8 +55,23 @@ if (registrationForm) {
     const captain = formData.get('captain')?.toString().trim() || 'Unknown';
     const instagram = formData.get('instagram')?.toString().trim() || '';
     const selectedEvent = eventDetails[eventSelect?.value] || { name: 'Not selected', price: 'TBD', date: 'TBD' };
-    const captainPhoto = formData.get('captain_photo')?.name || 'No file selected';
-    const paymentScreenshot = formData.get('payment_screenshot')?.name || 'No file selected';
+    const captainPhotoFile = formData.get('captain_photo') || null;
+    const paymentScreenshotFile = formData.get('payment_screenshot') || null;
+
+    const fileToBase64 = (file) => new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        // reader.result is a data URL: data:<mime>;base64,<base64>
+        const result = String(reader.result || '');
+        const base64 = result.includes(',') ? result.split(',')[1] : result;
+        resolve(base64);
+      };
+      reader.onerror = () => reject(new Error('Failed to read file'));
+      reader.readAsDataURL(file);
+    });
+
+    const captainPhotoBase64 = captainPhotoFile instanceof File ? await fileToBase64(captainPhotoFile) : null;
+    const paymentScreenshotBase64 = paymentScreenshotFile instanceof File ? await fileToBase64(paymentScreenshotFile) : null;
 
     const payload = {
       timestamp: new Date().toISOString(),
@@ -68,8 +83,8 @@ if (registrationForm) {
       event: selectedEvent.name,
       eventDate: selectedEvent.date,
       fee: selectedEvent.price,
-      captainPhoto,
-      paymentScreenshot
+      captainPhoto: captainPhotoBase64,
+      paymentScreenshot: paymentScreenshotBase64
     };
 
     const subject = encodeURIComponent(`New team registration - ${selectedEvent.name}`);
