@@ -1,0 +1,11 @@
+To fix the critical error in WordPress:
+
+1. In the WordPress admin, go to Appearance > Themes.
+2. Activate a default theme such as Twenty Twenty-Four.
+3. If the custom theme is still causing issues, delete or rename the theme folder from the server.
+4. Then re-upload the corrected theme zip.
+
+If you cannot access the admin:
+- Use your hosting file manager or FTP.
+- Rename the active theme folder (for example, arise-sports-theme to arise-sports-theme-disabled).
+- WordPress will fall back to a default theme.
