@@ -35,7 +35,7 @@ const eventDetails = {
 
 // Neon/PG endpoint (set this to your deployed server URL, e.g. https://your-api-domain.com)
 // This repo defaults to the local server URL.
-const NEON_API_BASE_URL = 'http://localhost:3000';
+const NEON_API_BASE_URL = 'https://updatedweb-one.vercel.app';
 
 
 const setStatus = (message, type = '') => {
