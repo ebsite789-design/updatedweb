@@ -33,7 +33,10 @@ const eventDetails = {
   'showdown': { name: '1V1 SHOWDOWN', price: '₹99', date: '09/08/2026' }
 };
 
-const SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbx.../exec';
+// Neon/PG endpoint (set this to your deployed server URL, e.g. https://your-api-domain.com)
+// This repo defaults to the local server URL.
+const NEON_API_BASE_URL = 'http://localhost:3000';
+
 
 const setStatus = (message, type = '') => {
   if (!formStatus) return;
@@ -75,16 +78,13 @@ if (registrationForm) {
     );
 
     try {
-      if (SHEET_WEBAPP_URL && !SHEET_WEBAPP_URL.includes('YOUR_APPS_SCRIPT_WEBAPP_URL')) {
-        await fetch(SHEET_WEBAPP_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        setStatus('Registration saved successfully to the Google Sheet.', 'success');
-      } else {
-        setStatus('Google Sheet endpoint is ready to use once you replace the placeholder URL in script.js with your Apps Script web app URL.', 'error');
-      }
+      const endpoint = `${NEON_API_BASE_URL}/api/registrations`;
+      await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      setStatus('Registration saved successfully. We will contact you shortly.', 'success');
     } catch (error) {
       setStatus('The registration could not be saved automatically. Please check the connection.', 'error');
     } finally {
